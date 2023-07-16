@@ -1,0 +1,72 @@
+Windows PowerShell
+(C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+Попробуйте новую кроссплатформенную оболочку PowerShell (https://aka.ms/pscore6)
+
+PS C:\Users\willy> ssh -p 8022 gb@localhost
+gb@localhost's password:
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.19.0-41-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Expanded Security Maintenance for Applications is not enabled.
+
+4 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+2 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+Last login: Sun Jul 16 21:56:34 2023 from 10.0.2.2
+gb@mygb:~$ mkdir isol_folder
+gb@mygb:~$ mkdir isol_folder/bin
+gb@mygb:~$ mkdir isol_folder/lib
+gb@mygb:~$ mkdir isol_folder/lib64
+gb@mygb:~$ cp /lib/x86_64-linux-gnu/libtinfo.so.6 isol_folder/lib
+gb@mygb:~$ cp /lib/x86_64-linux-gnu/libc.so.6 isol_folder/lib
+gb@mygb:~$ cp /lib64/ld-linux-x86-64.so.2 isol_folder/lib64/
+gb@mygb:~$ cd isol_folder
+
+gb@mygb:~$ cp /bin/bash isol_folder/bin
+cp: cannot create regular file 'isol_folder/bin/bash': Permission denied
+gb@mygb:~$ sudo cp /bin/bash isol_folder/bin
+gb@mygb:~$ cd isol_folder
+gb@mygb:~/isol_folder$ tree
+.
+├── bin
+│   └── bash
+├── lib
+│   ├── libc.so.6
+│   └── libtinfo.so.6
+└── lib64
+    └── ld-linux-x86-64.so.2
+
+3 directories, 4 files
+gb@mygb:~/isol_folder$ cd ~
+gb@mygb:~$ sudo su
+root@mygb:/home/gb# chroot isol_folder /bin
+chroot: failed to run command ‘/bin’: Permission denied
+root@mygb:/home/gb# chroot isol_folder
+bash-5.1# ll
+bash: ll: command not found
+bash-5.1# tree
+bash: tree: command not found
+bash-5.1# exit
+exit
+root@mygb:/home/gb# exit
+exit
+gb@mygb:~$ cp /bin/ls isol_folder/bin/
+cp: cannot create regular file 'isol_folder/bin/ls': Permission denied
+gb@mygb:~$ sudo cp /bin/ls isol_folder/bin/
+gb@mygb:~$ sudo cp /bin/tree isol_folder/bin/
+sgb@mygb:~$ sudo cp /lib/x86_64-linux-gnu/libselinux.so.1 isol_folder/lib/
+gb@mygb:~$ sudo cp /lib/x86_64-linux-gnu/libpcre2-8.so.0 isol_folder/lib/
+gb@mygb:~$ sudo chroot isol_folder/
+bash-5.1# ls
+bin  lib  lib64
+bash-5.1#

@@ -1,0 +1,497 @@
+PS C:\Users\willy> ssh -p 8022 gb@localhost
+gb@localhost's password:
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.19.0-41-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Expanded Security Maintenance for Applications is not enabled.
+
+4 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+2 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+Last login: Sun Jul 16 22:48:27 2023 from 10.0.2.2
+gb@mygb:~$ sudo unshare --net --pid --fork --mount-proc /bin/bash
+[sudo] password for gb:
+root@mygb:/home/gb# ip a
+1: lo: <LOOPBACK> mtu 65536 qdisc noop state DOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+root@mygb:/home/gb# ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.1  19208  4300 pts/1    S    23:07   0:00 /bin/bash
+root           9  0.0  0.0  21644  1564 pts/1    R+   23:08   0:00 ps aux
+root@mygb:/home/gb# tree
+.
+├── Desktop
+├── Dockerfile
+├── Documents
+├── Downloads
+├── isol_folder
+│   ├── bin
+│   │   ├── bash
+│   │   ├── ls
+│   │   └── tree
+│   ├── lib
+│   │   ├── libc.so.6
+│   │   ├── libpcre2-8.so.0
+│   │   ├── libselinux.so.1
+│   │   └── libtinfo.so.6
+│   └── lib64
+│       └── ld-linux-x86-64.so.2
+├── Music
+├── myscript.sh
+├── Pictures
+├── print100
+├── printeven
+├── printeven.bs
+├── Public
+├── scriptEven.sh
+├── snap
+│   ├── chromium
+│   │   ├── 2465
+│   │   ├── 2529
+│   │   ├── common
+│   │   │   └── chromium
+│   │   │       ├── AutofillStates
+│   │   │       ├── CertificateRevocation
+│   │   │       ├── chrome_shutdown_ms.txt
+│   │   │       ├── ClientSidePhishing
+│   │   │       ├── Crash Reports
+│   │   │       │   ├── attachments
+│   │   │       │   ├── completed
+│   │   │       │   ├── new
+│   │   │       │   ├── pending
+│   │   │       │   └── settings.dat
+│   │   │       ├── Crowd Deny
+│   │   │       ├── Default
+│   │   │       │   ├── Affiliation Database
+│   │   │       │   ├── Affiliation Database-journal
+│   │   │       │   ├── AutofillStrikeDatabase
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   └── LOG
+│   │   │       │   ├── blob_storage
+│   │   │       │   │   └── 573d680c-6444-4899-ae78-485f61db467f
+│   │   │       │   ├── BudgetDatabase
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   └── LOG
+│   │   │       │   ├── Cache
+│   │   │       │   │   └── Cache_Data
+│   │   │       │   │       ├── 0033abf05a9eb018_0
+│   │   │       │   │       ├── 00e9feaebcb12d15_0
+│   │   │       │   │       ├── 08c685b0da03b0d3_0
+│   │   │       │   │       ├── 090d6b8a1ee2e3b1_0
+│   │   │       │   │       ├── 0d1612014bdde02c_0
+│   │   │       │   │       ├── 120fe3dcc0396a86_0
+│   │   │       │   │       ├── 13791d333e75a003_0
+│   │   │       │   │       ├── 138d1aee8d6430b3_0
+│   │   │       │   │       ├── 15145040f7f12f31_0
+│   │   │       │   │       ├── 18287e4f16aa4851_0
+│   │   │       │   │       ├── 185fe11252385bd5_0
+│   │   │       │   │       ├── 1bb2c0ad2db028c2_0
+│   │   │       │   │       ├── 1c48b307958a8b7e_0
+│   │   │       │   │       ├── 1d1a045a84b31192_0
+│   │   │       │   │       ├── 210611bc03577727_0
+│   │   │       │   │       ├── 24cf95276b691920_0
+│   │   │       │   │       ├── 257b9ada9582cd59_0
+│   │   │       │   │       ├── 25cb4c776f780556_0
+│   │   │       │   │       ├── 261efba01ed87807_0
+│   │   │       │   │       ├── 27e24444574383b0_0
+│   │   │       │   │       ├── 291a94b014ca4478_0
+│   │   │       │   │       ├── 2d490754d7b0a757_0
+│   │   │       │   │       ├── 2dd64bb034c31fd7_0
+│   │   │       │   │       ├── 39233f2c6630c303_0
+│   │   │       │   │       ├── 3a4091e72ac38fe2_0
+│   │   │       │   │       ├── 3afb6368b5e1b7de_0
+│   │   │       │   │       ├── 3b2ecda6c61b2afa_0
+│   │   │       │   │       ├── 3b30406786a3f240_0
+│   │   │       │   │       ├── 3c6d11819c739f69_0
+│   │   │       │   │       ├── 3e90545dcfcf0744_0
+│   │   │       │   │       ├── 3f8195ad4913844d_0
+│   │   │       │   │       ├── 43533359a55aeba1_0
+│   │   │       │   │       ├── 44992ee988bcd129_0
+│   │   │       │   │       ├── 454ac45948ea0098_0
+│   │   │       │   │       ├── 45c9a96258820e45_0
+│   │   │       │   │       ├── 473ed187542cf2a5_0
+│   │   │       │   │       ├── 4848e9309aac9bd5_0
+│   │   │       │   │       ├── 495470a2142413fe_0
+│   │   │       │   │       ├── 499d03ae65025657_0
+│   │   │       │   │       ├── 49e81abf9af01310_0
+│   │   │       │   │       ├── 4ab47482837e67e8_0
+│   │   │       │   │       ├── 4aeb27a022485385_0
+│   │   │       │   │       ├── 4e495036a6364314_0
+│   │   │       │   │       ├── 4ed49bc734de0a4f_0
+│   │   │       │   │       ├── 4fd33b48d1be7f91_0
+│   │   │       │   │       ├── 511a4da7eed49a92_0
+│   │   │       │   │       ├── 539eb639f7b22bca_0
+│   │   │       │   │       ├── 53f505e4f6768c22_0
+│   │   │       │   │       ├── 5909d2f48dd54d6b_0
+│   │   │       │   │       ├── 59212b07d2c05b31_0
+│   │   │       │   │       ├── 5b247b6f41efa073_0
+│   │   │       │   │       ├── 5bd5feb08ab039d0_0
+│   │   │       │   │       ├── 5cbcc0bd4ce1ed3c_0
+│   │   │       │   │       ├── 5e09f3c33a353ae9_0
+│   │   │       │   │       ├── 6040d5649db6ed90_0
+│   │   │       │   │       ├── 61cab57a1392ab19_0
+│   │   │       │   │       ├── 62fff2c512438734_0
+│   │   │       │   │       ├── 63e0f62ccf690488_0
+│   │   │       │   │       ├── 64e1ccc2cef1ab37_0
+│   │   │       │   │       ├── 6a2487d0c6431cb4_0
+│   │   │       │   │       ├── 6acec2dd68af92da_0
+│   │   │       │   │       ├── 73303c149a2aaabb_0
+│   │   │       │   │       ├── 748fcff84c563ec5_0
+│   │   │       │   │       ├── 76866fc20e12594d_0
+│   │   │       │   │       ├── 7864ab377d7fd7eb_0
+│   │   │       │   │       ├── 799a63ae48dba315_0
+│   │   │       │   │       ├── 79bd790df71377a2_0
+│   │   │       │   │       ├── 7fcd9298358e30d2_0
+│   │   │       │   │       ├── 8125e3548cfe6cfa_0
+│   │   │       │   │       ├── 817ef7a7412c0414_0
+│   │   │       │   │       ├── 8607a7321d8aa4d0_0
+│   │   │       │   │       ├── 86f382f96ec80734_0
+│   │   │       │   │       ├── 873a67c79795c3e5_0
+│   │   │       │   │       ├── 879a41092058c5ed_0
+│   │   │       │   │       ├── 899efbebfe667567_0
+│   │   │       │   │       ├── 8bb32ae47b5dd4f8_0
+│   │   │       │   │       ├── 8de1dc31f004f267_0
+│   │   │       │   │       ├── 8dffb26f67b3f373_0
+│   │   │       │   │       ├── 90692f3a7d073261_0
+│   │   │       │   │       ├── 90d943e063a13c66_0
+│   │   │       │   │       ├── 93d81321f8c35eab_0
+│   │   │       │   │       ├── 949772fc2959892a_0
+│   │   │       │   │       ├── 99fb8e47552a3c59_0
+│   │   │       │   │       ├── 9aff2b7f31c174ee_0
+│   │   │       │   │       ├── 9ce9f244bdaa7597_0
+│   │   │       │   │       ├── 9de80ad3bf6a7fbc_0
+│   │   │       │   │       ├── a1c7181ccaac43dc_0
+│   │   │       │   │       ├── a4a7afa7f8cd597e_0
+│   │   │       │   │       ├── a93357beba4c7515_0
+│   │   │       │   │       ├── a94b233d988d0275_0
+│   │   │       │   │       ├── aa23cb0643dd0d4a_0
+│   │   │       │   │       ├── acd4db9bf10c088c_0
+│   │   │       │   │       ├── ae433d13176b6006_0
+│   │   │       │   │       ├── af7cadbe33d5d701_0
+│   │   │       │   │       ├── b06b9f2bfba857c1_0
+│   │   │       │   │       ├── b128d99c0f064e55_0
+│   │   │       │   │       ├── b24ef56c0628a9ad_0
+│   │   │       │   │       ├── b5649b21ce75da04_0
+│   │   │       │   │       ├── b852ce34c4790094_0
+│   │   │       │   │       ├── b9e034a8bb5bc5a6_0
+│   │   │       │   │       ├── bc1dfda4b002f317_0
+│   │   │       │   │       ├── bfc65e6c6c6a1649_0
+│   │   │       │   │       ├── c0490ef1f540f66d_0
+│   │   │       │   │       ├── c3e4337ad1e925f0_0
+│   │   │       │   │       ├── c505b23ec4127ec0_0
+│   │   │       │   │       ├── c7f6f10fff02a98c_0
+│   │   │       │   │       ├── c86351bf59958b45_0
+│   │   │       │   │       ├── ccd9c77b807dd93b_0
+│   │   │       │   │       ├── cdea9d06da8214ec_0
+│   │   │       │   │       ├── cf809eed4a0696a2_0
+│   │   │       │   │       ├── d17e0adc65ddda0d_0
+│   │   │       │   │       ├── d42aa2ae43435072_0
+│   │   │       │   │       ├── d4448669e724cac0_0
+│   │   │       │   │       ├── d45225f8aeb8dd6d_0
+│   │   │       │   │       ├── d4c8d7f7543b397a_0
+│   │   │       │   │       ├── d5db58f94cb8731e_0
+│   │   │       │   │       ├── d616d1c5918c348d_0
+│   │   │       │   │       ├── dbbbac3d7751e013_0
+│   │   │       │   │       ├── dc019dc3ac80d93f_0
+│   │   │       │   │       ├── dda1ea086733c488_0
+│   │   │       │   │       ├── ddf5166034775575_0
+│   │   │       │   │       ├── dfa3be3a96f7f795_0
+│   │   │       │   │       ├── e072324623798d0d_0
+│   │   │       │   │       ├── e146ab906fcf853c_0
+│   │   │       │   │       ├── e19e8fa12615ca36_0
+│   │   │       │   │       ├── e28d2fb0f6c135ab_0
+│   │   │       │   │       ├── e2ac3dbf59fc9ce7_0
+│   │   │       │   │       ├── e38488daf20d1a2b_0
+│   │   │       │   │       ├── e3a05508a716fbb1_0
+│   │   │       │   │       ├── e3bd969f0dfdd547_0
+│   │   │       │   │       ├── e722216982d8fca4_0
+│   │   │       │   │       ├── e85ac8952d7783d7_0
+│   │   │       │   │       ├── eb968ce1ae8b89c7_0
+│   │   │       │   │       ├── ed1bcc24f070ca49_0
+│   │   │       │   │       ├── ed5152d08612b2ae_0
+│   │   │       │   │       ├── ef57079f05be8648_0
+│   │   │       │   │       ├── f02717a5975d00bf_0
+│   │   │       │   │       ├── f0e52463f5e7a672_0
+│   │   │       │   │       ├── f1c26be490a4d4e0_0
+│   │   │       │   │       ├── f3c991833d498bcf_0
+│   │   │       │   │       ├── f816b4df685be2e8_0
+│   │   │       │   │       ├── f84cc0923952e355_0
+│   │   │       │   │       ├── f8f1205358813cab_0
+│   │   │       │   │       ├── f9c976136131c847_0
+│   │   │       │   │       ├── fb04d4d77baaffa1_0
+│   │   │       │   │       ├── fc9c10748d83754f_0
+│   │   │       │   │       ├── fe6cb9799e5d647b_0
+│   │   │       │   │       ├── index
+│   │   │       │   │       └── index-dir
+│   │   │       │   │           └── the-real-index
+│   │   │       │   ├── Code Cache
+│   │   │       │   │   ├── js
+│   │   │       │   │   │   ├── 0e2868fb54e00268_0
+│   │   │       │   │   │   ├── 230354aafe8798f7_0
+│   │   │       │   │   │   ├── 2a7a8076b2ffcac1_0
+│   │   │       │   │   │   ├── 2ab3280421bc04ee_0
+│   │   │       │   │   │   ├── 2b7201fa6e056326_0
+│   │   │       │   │   │   ├── 2f9c9d7ef490a580_0
+│   │   │       │   │   │   ├── 4819686e48005448_0
+│   │   │       │   │   │   ├── 5ad6b81ad57eb460_0
+│   │   │       │   │   │   ├── 6d0763a6dd04787e_0
+│   │   │       │   │   │   ├── 798dd92283293a92_0
+│   │   │       │   │   │   ├── 871c1a7652394072_0
+│   │   │       │   │   │   ├── 8be86fd966920ec1_0
+│   │   │       │   │   │   ├── a34ef75b557a0a0f_0
+│   │   │       │   │   │   ├── a480eed456bcaf77_0
+│   │   │       │   │   │   ├── bceab5a1ab087bae_0
+│   │   │       │   │   │   ├── beebb01e4e28503a_0
+│   │   │       │   │   │   ├── c7c4ea4e07112256_0
+│   │   │       │   │   │   ├── d55ddd5aa55fe1cf_0
+│   │   │       │   │   │   ├── de14e1eb2d137711_0
+│   │   │       │   │   │   ├── deeedfb3a596384a_0
+│   │   │       │   │   │   ├── e338c1095790365e_0
+│   │   │       │   │   │   ├── eca7d5ef65ee8cc3_0
+│   │   │       │   │   │   ├── f9a1c59ae37b0ffb_0
+│   │   │       │   │   │   ├── fc59f91d4d0815a8_0
+│   │   │       │   │   │   ├── index
+│   │   │       │   │   │   └── index-dir
+│   │   │       │   │   │       └── the-real-index
+│   │   │       │   │   └── wasm
+│   │   │       │   │       ├── index
+│   │   │       │   │       └── index-dir
+│   │   │       │   │           └── the-real-index
+│   │   │       │   ├── commerce_subscription_db
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   └── LOG
+│   │   │       │   ├── Cookies
+│   │   │       │   ├── Cookies-journal
+│   │   │       │   ├── coupon_db
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   └── LOG
+│   │   │       │   ├── databases
+│   │   │       │   │   ├── Databases.db
+│   │   │       │   │   └── Databases.db-journal
+│   │   │       │   ├── DawnCache
+│   │   │       │   │   ├── data_0
+│   │   │       │   │   ├── data_1
+│   │   │       │   │   ├── data_2
+│   │   │       │   │   ├── data_3
+│   │   │       │   │   └── index
+│   │   │       │   ├── Download Service
+│   │   │       │   │   ├── EntryDB
+│   │   │       │   │   │   ├── LOCK
+│   │   │       │   │   │   └── LOG
+│   │   │       │   │   └── Files
+│   │   │       │   ├── Extension Rules
+│   │   │       │   │   ├── 000003.log
+│   │   │       │   │   ├── CURRENT
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   ├── LOG
+│   │   │       │   │   └── MANIFEST-000001
+│   │   │       │   ├── Extension Scripts
+│   │   │       │   │   ├── 000003.log
+│   │   │       │   │   ├── CURRENT
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   ├── LOG
+│   │   │       │   │   └── MANIFEST-000001
+│   │   │       │   ├── Extension State
+│   │   │       │   │   ├── 000003.log
+│   │   │       │   │   ├── CURRENT
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   ├── LOG
+│   │   │       │   │   └── MANIFEST-000001
+│   │   │       │   ├── Favicons
+│   │   │       │   ├── Favicons-journal
+│   │   │       │   ├── Feature Engagement Tracker
+│   │   │       │   │   ├── AvailabilityDB
+│   │   │       │   │   │   ├── LOCK
+│   │   │       │   │   │   └── LOG
+│   │   │       │   │   └── EventDB
+│   │   │       │   │       ├── LOCK
+│   │   │       │   │       └── LOG
+│   │   │       │   ├── File System
+│   │   │       │   │   ├── 000
+│   │   │       │   │   │   └── t
+│   │   │       │   │   │       └── Paths
+│   │   │       │   │   │           ├── 000003.log
+│   │   │       │   │   │           ├── CURRENT
+│   │   │       │   │   │           ├── LOCK
+│   │   │       │   │   │           ├── LOG
+│   │   │       │   │   │           └── MANIFEST-000001
+│   │   │       │   │   ├── 001
+│   │   │       │   │   │   └── t
+│   │   │       │   │   │       └── Paths
+│   │   │       │   │   │           ├── 000003.log
+│   │   │       │   │   │           ├── CURRENT
+│   │   │       │   │   │           ├── LOCK
+│   │   │       │   │   │           ├── LOG
+│   │   │       │   │   │           └── MANIFEST-000001
+│   │   │       │   │   └── Origins
+│   │   │       │   │       ├── 000003.log
+│   │   │       │   │       ├── CURRENT
+│   │   │       │   │       ├── LOCK
+│   │   │       │   │       ├── LOG
+│   │   │       │   │       └── MANIFEST-000001
+│   │   │       │   ├── GCM Store
+│   │   │       │   │   └── Encryption
+│   │   │       │   │       ├── 000003.log
+│   │   │       │   │       ├── CURRENT
+│   │   │       │   │       ├── LOCK
+│   │   │       │   │       ├── LOG
+│   │   │       │   │       └── MANIFEST-000001
+│   │   │       │   ├── GPUCache
+│   │   │       │   │   ├── data_0
+│   │   │       │   │   ├── data_1
+│   │   │       │   │   ├── data_2
+│   │   │       │   │   ├── data_3
+│   │   │       │   │   └── index
+│   │   │       │   ├── heavy_ad_intervention_opt_out.db
+│   │   │       │   ├── heavy_ad_intervention_opt_out.db-journal
+│   │   │       │   ├── History
+│   │   │       │   ├── History-journal
+│   │   │       │   ├── Local Storage
+│   │   │       │   │   └── leveldb
+│   │   │       │   │       ├── 000003.log
+│   │   │       │   │       ├── CURRENT
+│   │   │       │   │       ├── LOCK
+│   │   │       │   │       ├── LOG
+│   │   │       │   │       └── MANIFEST-000001
+│   │   │       │   ├── LOCK
+│   │   │       │   ├── LOG
+│   │   │       │   ├── Login Data
+│   │   │       │   ├── Login Data For Account
+│   │   │       │   ├── Login Data For Account-journal
+│   │   │       │   ├── Login Data-journal
+│   │   │       │   ├── Network Action Predictor
+│   │   │       │   ├── Network Action Predictor-journal
+│   │   │       │   ├── Network Persistent State
+│   │   │       │   ├── optimization_guide_hint_cache_store
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   └── LOG
+│   │   │       │   ├── optimization_guide_model_metadata_store
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   └── LOG
+│   │   │       │   ├── Preferences
+│   │   │       │   ├── PreferredApps
+│   │   │       │   ├── README
+│   │   │       │   ├── Reporting and NEL
+│   │   │       │   ├── Reporting and NEL-journal
+│   │   │       │   ├── Secure Preferences
+│   │   │       │   ├── Segmentation Platform
+│   │   │       │   │   ├── SegmentInfoDB
+│   │   │       │   │   │   ├── LOCK
+│   │   │       │   │   │   └── LOG
+│   │   │       │   │   ├── SignalDB
+│   │   │       │   │   │   ├── LOCK
+│   │   │       │   │   │   └── LOG
+│   │   │       │   │   └── SignalStorageConfigDB
+│   │   │       │   │       ├── LOCK
+│   │   │       │   │       └── LOG
+│   │   │       │   ├── Sessions
+│   │   │       │   │   ├── Session_13327087344945231
+│   │   │       │   │   └── Tabs_13327087369508715
+│   │   │       │   ├── Session Storage
+│   │   │       │   │   ├── 000003.log
+│   │   │       │   │   ├── CURRENT
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   ├── LOG
+│   │   │       │   │   └── MANIFEST-000001
+│   │   │       │   ├── shared_proto_db
+│   │   │       │   │   ├── 000003.log
+│   │   │       │   │   ├── CURRENT
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   ├── LOG
+│   │   │       │   │   ├── MANIFEST-000001
+│   │   │       │   │   └── metadata
+│   │   │       │   │       ├── 000003.log
+│   │   │       │   │       ├── CURRENT
+│   │   │       │   │       ├── LOCK
+│   │   │       │   │       ├── LOG
+│   │   │       │   │       └── MANIFEST-000001
+│   │   │       │   ├── Shortcuts
+│   │   │       │   ├── Shortcuts-journal
+│   │   │       │   ├── Site Characteristics Database
+│   │   │       │   │   ├── 000003.log
+│   │   │       │   │   ├── CURRENT
+│   │   │       │   │   ├── LOCK
+│   │   │       │   │   ├── LOG
+│   │   │       │   │   └── MANIFEST-000001
+│   │   │       │   ├── Sync Data
+│   │   │       │   │   └── LevelDB
+│   │   │       │   │       ├── 000003.log
+│   │   │       │   │       ├── CURRENT
+│   │   │       │   │       ├── LOCK
+│   │   │       │   │       ├── LOG
+│   │   │       │   │       └── MANIFEST-000001
+│   │   │       │   ├── Top Sites
+│   │   │       │   ├── Top Sites-journal
+│   │   │       │   ├── TransportSecurity
+│   │   │       │   ├── trusted_vault.pb
+│   │   │       │   ├── Visited Links
+│   │   │       │   ├── Web Data
+│   │   │       │   ├── Web Data-journal
+│   │   │       │   └── WebStorage
+│   │   │       │       ├── QuotaManager
+│   │   │       │       └── QuotaManager-journal
+│   │   │       ├── Dictionaries
+│   │   │       │   └── en-US-10-1.bdic
+│   │   │       ├── FileTypePolicies
+│   │   │       ├── FirstPartySetsPreloaded
+│   │   │       ├── First Run
+│   │   │       ├── GrShaderCache
+│   │   │       │   ├── data_0
+│   │   │       │   ├── data_1
+│   │   │       │   ├── data_2
+│   │   │       │   ├── data_3
+│   │   │       │   └── index
+│   │   │       ├── hyphen-data
+│   │   │       ├── Last Version
+│   │   │       ├── Local State
+│   │   │       ├── MEIPreload
+│   │   │       ├── NativeMessagingHosts
+│   │   │       ├── OnDeviceHeadSuggestModel
+│   │   │       ├── OptimizationHints
+│   │   │       ├── OriginTrials
+│   │   │       ├── PKIMetadata
+│   │   │       ├── Safe Browsing
+│   │   │       ├── SafetyTips
+│   │   │       ├── ShaderCache
+│   │   │       │   ├── data_0
+│   │   │       │   ├── data_1
+│   │   │       │   ├── data_2
+│   │   │       │   ├── data_3
+│   │   │       │   └── index
+│   │   │       ├── SSLErrorAssistant
+│   │   │       ├── Subresource Filter
+│   │   │       │   └── Unindexed Rules
+│   │   │       ├── Variations
+│   │   │       ├── WidevineCdm
+│   │   │       └── ZxcvbnData
+│   │   └── current -> 2424
+│   ├── firefox
+│   │   ├── 2356
+│   │   ├── 2605
+│   │   ├── common
+│   │   └── current -> 2356
+│   └── snapd-desktop-integration
+│       ├── 57
+│       ├── 83
+│       ├── common
+│       └── current -> 83
+├── ssh
+├── Templates
+├── testdirectory
+│   ├── myfile1.txt
+│   ├── myfile2
+│   ├── myfile2.bak
+│   └── myfile3.tmp
+├── test.txt
+├── test.txt.bak
+├── test.txt.bak~
+└── Videos
+
+110 directories, 356 files
+root@mygb:/home/gb#
